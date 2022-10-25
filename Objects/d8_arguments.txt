@@ -1,0 +1,21 @@
+--release
+--output
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects
+--lib
+D:\b4a\File Stup\SDK\platforms\android-30\android.jar
+D:\b4a\File Stup\SDK\tools\..\extras\b4a_local\unpacked-b4ashared-63792602270000\dex_v1\b4ashared.zip
+D:\b4a\File Stup\SDK\tools\..\extras\b4a_local\unpacked-core-63792602270000\dex_v1\core.zip
+D:\b4a\File Stup\SDK\tools\..\extras\b4a_local\unpacked-xui-63792602270000\dex_v1\xui.zip
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\main$1.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\main$B4AMenuItemsClickListener.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\main$HandleKeyDelayed.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\main$ResumeMessage.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\main$WaitForLayout.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\main.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\R$drawable.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\R$style.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\R.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\starter$1.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\starter$2.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\starter$starter_BR.dex
+D:\Sourc Code\Slider MGH\Slider - Offline\Objects\dexed\Slider\Mgh\Offline\starter.dex

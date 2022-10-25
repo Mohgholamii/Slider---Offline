@@ -1,0 +1,191 @@
+﻿Build1=Default,Slider.Mgh.Offline
+File1=iransansmedium.ttf
+File2=slii_ (1).png
+File3=slii_ (3).png
+File4=slii_ (4).png
+File5=slii_ (5).png
+File6=slii_ (6).png
+File7=slii_ (7).png
+FileGroup1=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+FileGroup4=Default Group
+FileGroup5=Default Group
+FileGroup6=Default Group
+FileGroup7=Default Group
+Group=Default Group
+Library1=core
+Library2=xui
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="30"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
+Module1=Starter
+NumberOfFiles=7
+NumberOfLibraries=2
+NumberOfModules=1
+Version=11.8
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Slider Offline MGH
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: true
+	#IncludeTitle: false
+#End Region
+
+''Edite Source By MGH
+Sub Process_Globals
+	
+	Private xui As XUI
+	Dim timer_slidehome As Timer
+End Sub
+
+Sub Globals
+	
+	
+	Dim panel_fadehome As Panel
+	Dim sliding_imagehome As ImageView
+	Dim panel_alphahome As Int
+	Dim picture_positionhome As Int
+	Dim list_picturehome As List
+	Dim llbhome As Label
+	Dim i=0 As Int
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	
+	Dim plop3 As Panel
+	plop3.Initialize("plop3")
+	Activity.AddView(plop3,0%x,0%y,100%x,6.5%y)
+	plop3.Color=Colors.White
+	plop3.Elevation=8dip
+
+	Dim imgp3 As ImageView
+	imgp3.Initialize("imgp3")
+	plop3.AddView(imgp3,85%x,0.50%y,15%x,5.5%y)
+	imgp3.Gravity=Gravity.FILL
+	
+
+	
+	
+	Dim titelp3 As Label
+	titelp3.Initialize("titelp3")
+	titelp3.Text="اسلایدر ساده"
+	titelp3.TextSize=20
+	titelp3.TextColor=0xFF5B5454
+	titelp3.Typeface=Typeface.LoadFromAssets("iransansmedium.ttf")
+	titelp3.Gravity=Gravity.CENTER
+	plop3.AddView(titelp3,26%x,0.85%y,45%x,5.5%y)
+	
+	
+	Activity.Color=Colors.White
+	
+	Dim psliderhome As Panel
+	psliderhome.Initialize("psliderhome")
+	Activity.AddView(psliderhome,2.5%x,8%y,95.5%x,33%y)
+	
+	
+
+	
+	
+	sliding_imagehome.Initialize("sliding_imagehome")
+	psliderhome.AddView(sliding_imagehome,2%x,1%y,92.5%x,31%y) 'Must Be Like (panel_fade) position !
+	psliderhome.Elevation=2dip
+	
+	
+	llbhome.Initialize("llbhome")
+	psliderhome.AddView(llbhome,2%x,26.2%y,92.1%x,5%y)
+	llbhome.Color=0x9AFFFFFF
+	llbhome.Typeface=Typeface.LoadFromAssets("iransansmedium.ttf")
+	llbhome.Gravity=Gravity.CENTER
+	llbhome.TextColor=Colors.Black
+	llbhome.TextSize=22
+	panel_fadehome.Initialize("panel_fadehome")
+	psliderhome.AddView(panel_fadehome, 1.5%x,1%y,93%x,31%y) 
+
+	Dim list_filehome As List = File.ListFiles(File.DirAssets) 
+	list_picturehome.Initialize
+	
+	'<get_picture_files>
+	If list_filehome.Size > 0 Then
+		For i = 0 To list_filehome.Size - 1
+			Dim s As String = list_filehome.Get(i)
+			If s.EndsWith(".png") = True And s.StartsWith("slii_") = True Then
+				list_picturehome.Add(s)
+				
+			End If
+		Next
+	End If
+	'</get_picture_files>
+	
+	timer_slidehome.Initialize("timer_slidehome", 100)
+	timer_slidehome.Enabled = True
+	
+	
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub Button1_Click
+	xui.MsgboxAsync("Hello world!", "B4X")
+End Sub
+
+Sub timer_slidehome_Tick
+	
+	
+	i=i+1
+	panel_alphahome = panel_alphahome - 40
+	If panel_alphahome < - 3500 Then
+		' (-400) is the speed of sliding time change
+		' You can change it to (-200) to have faster slider or
+		' change it to (-700) to slower the slider.
+		picture_positionhome = picture_positionhome + 1
+		panel_alphahome = 255
+		panel_fadehome.Color = Colors.ARGB(panel_alphahome, 255, 255, 255) '(255,255,255) = colors.white = activity.color
+	Else If panel_alphahome > 0 And panel_alphahome < 256 Then
+		panel_fadehome.Color = Colors.ARGB(panel_alphahome, 255, 255, 255) '(255,255,255) = colors.white = activity.color
+	Else if panel_alphahome < 0 Then
+		panel_fadehome.Color = Colors.ARGB(0, 255, 255, 255)
+	End If
+	
+	
+	If picture_positionhome > list_picturehome.Size - 1 Then
+		picture_positionhome = 0
+	End If
+
+	sliding_imagehome.Bitmap = LoadBitmapSample(File.DirAssets, list_picturehome.Get(picture_positionhome), 30%x, 30%x)
+	sliding_imagehome.Gravity=Gravity.FILL
+	sliding_imagehome.Tag=i
+	If picture_positionhome==0 Then
+		llbhome.Text="کارتون الوین و سنجاب ها"
+	else If picture_positionhome==1 Then
+		llbhome.Text="برنامه کودک ولاد و نیکی"
+	else If picture_positionhome==2 Then
+		llbhome.Text="دنیای بازی های آنلاین کودکانه"
+	else If picture_positionhome==3 Then
+		llbhome.Text="دنیای آموزش های کودکانه"
+	else If picture_positionhome==4 Then
+		llbhome.Text="برنامه کودک دیانا و روما"
+	else If picture_positionhome==5 Then
+		llbhome.Text="کارتون جذاب و خنده دار باب اسفنجی"
+	
+	End If
+
+
+
+End Sub
+Sub sliding_imagehome_Click
+
+	ToastMessageShow("Slider Position Clicked",False)
+	
+End Sub
